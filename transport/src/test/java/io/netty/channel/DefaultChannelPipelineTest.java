@@ -24,7 +24,6 @@ import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.channel.local.LocalAddress;
 import io.netty.channel.local.LocalChannel;
-import io.netty.channel.local.LocalEventLoopGroup;
 import io.netty.channel.local.LocalServerChannel;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -1142,8 +1141,8 @@ public class DefaultChannelPipelineTest {
             // the time.
             for (int i = 0; i < 500; i++) {
 
-                ChannelPipeline pipeline = new LocalChannel().pipeline();
-                group.register(pipeline.channel()).sync();
+                ChannelPipeline pipeline = new LocalChannel(group.next()).pipeline();
+                pipeline.channel().register().sync();
 
                 final CountDownLatch latch = new CountDownLatch(1);
 
