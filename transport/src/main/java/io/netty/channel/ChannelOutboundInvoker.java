@@ -92,7 +92,7 @@ public interface ChannelOutboundInvoker {
      * an error.
      * <p>
      * This will result in having the
-     * {@link ChannelOutboundHandler#deregister(ChannelHandlerContext, ChannelPromise)}
+     * {@link ChannelOutboundHandler#register(ChannelHandlerContext, ChannelPromise)}
      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
      * {@link Channel}.
      *
@@ -193,7 +193,7 @@ public interface ChannelOutboundInvoker {
      * The given {@link ChannelPromise} will be notified.
      * <p>
      * This will result in having the
-     * {@link ChannelOutboundHandler#deregister(ChannelHandlerContext, ChannelPromise)}
+     * {@link ChannelOutboundHandler#register(ChannelHandlerContext, ChannelPromise)}
      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
      * {@link Channel}.
      */

@@ -19,7 +19,8 @@ package io.netty.channel;
 import io.netty.util.internal.StringUtil;
 
 /**
- * A {@link ChannelFactory} that instantiates a new {@link Channel} by invoking its default constructor reflectively.
+ * A {@link ChannelFactory} that instantiates a new {@link ServerChannel} by invoking its default constructor
+ * reflectively.
  */
 public final class ReflectiveServerChannelFactory<T extends ServerChannel> implements ServerChannelFactory<T> {
 
@@ -33,12 +34,12 @@ public final class ReflectiveServerChannelFactory<T extends ServerChannel> imple
     }
 
     @Override
-    public T newChannel(EventLoop eventLoop, EventLoopGroup childEventLoopGroup) throws Exception {
+    public T newChannel(EventLoop eventLoop, EventLoopGroup childEventLoopGroup) {
         try {
             return clazz.getConstructor(EventLoop.class, EventLoopGroup.class)
                         .newInstance(eventLoop, childEventLoopGroup);
         } catch (Throwable t) {
-            throw new ChannelException("Unable to create Channel from class " + clazz, t);
+            throw new ChannelException("Unable to create ServerChannel from class " + clazz, t);
         }
     }
 

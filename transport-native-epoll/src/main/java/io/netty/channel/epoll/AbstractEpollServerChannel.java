@@ -54,11 +54,6 @@ public abstract class AbstractEpollServerChannel extends AbstractEpollChannel im
     }
 
     @Override
-    public EpollChannelConfig config() {
-        return null;
-    }
-
-    @Override
     public ChannelMetadata metadata() {
         return METADATA;
     }

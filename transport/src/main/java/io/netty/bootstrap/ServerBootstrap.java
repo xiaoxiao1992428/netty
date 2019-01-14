@@ -315,7 +315,7 @@ public class ServerBootstrap extends AbstractBootstrap<ServerBootstrap, ServerCh
 
                 setChannelOptions(child, childOptions, logger);
 
-                for (Entry<AttributeKey<?>, Object> e: childAttrs) {
+                for (Entry<AttributeKey<?>, Object> e : childAttrs) {
                     child.attr((AttributeKey<Object>) e.getKey()).set(e.getValue());
                 }
 

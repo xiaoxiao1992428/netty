@@ -27,6 +27,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.AbstractNioMessageChannel;
 import io.netty.channel.sctp.DefaultSctpServerChannelConfig;
 import io.netty.channel.sctp.SctpServerChannelConfig;
+import io.netty.util.internal.ObjectUtil;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -68,7 +69,7 @@ public class NioSctpServerChannel extends AbstractNioMessageChannel
     public NioSctpServerChannel(EventLoop eventLoop, EventLoopGroup childEventLoopGroup) {
         super(null, eventLoop, newSocket(), SelectionKey.OP_ACCEPT);
         config = new NioSctpServerChannelConfig(this, javaChannel());
-        this.childEventLoopGroup = childEventLoopGroup;
+        this.childEventLoopGroup = ObjectUtil.checkNotNull(childEventLoopGroup, "childEventLoopGroup");
     }
 
     @Override

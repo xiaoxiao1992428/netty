@@ -74,7 +74,7 @@ public interface ChannelOutboundHandler extends ChannelHandler {
     /**
      * Called once a deregister operation is made from the current registered {@link EventLoop}.
      *
-     * @param ctx               the {@link ChannelHandlerContext} for which the deregistr operation is made
+     * @param ctx               the {@link ChannelHandlerContext} for which the deregister operation is made
      * @param promise           the {@link ChannelPromise} to notify once the operation completes
      * @throws Exception        thrown if an error occurs
      */
